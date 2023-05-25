@@ -1,0 +1,27 @@
+1. Collection & Excess & Git & Github, Function (4 Types, default fun., *Args, **Kwargs, lambda), Class , Inheritance
+
+Python ---> Django (Web Application Framework) ---> Web pages , DB Connection
+
+Framework ---> Reuse the System or features
+
+Django Aim ---> Apply Main Bussiness Logic only
+
+orm, MVT (Model Views Templates)
+
+PMS....
+
+employee
+project
+Task
+Payment
+user
+
+SQL ---> Joins, Nested Queries, Primary key, Foreign Keys, Unique, Not Null, sql - Nosql
+        Projection, Order by, where clause, Aggregation, Relationships (one to one, one to many, many to many, many to one)
+
+Postgres - https://www.postgresql.org/download/windows/
+
+postgres Master Password - postgres
+postgres db_name = akpms
+'USER':'postgres',
+'PASSWORD':'postgres',
