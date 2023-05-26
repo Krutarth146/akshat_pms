@@ -21,7 +21,12 @@ SQL ---> Joins, Nested Queries, Primary key, Foreign Keys, Unique, Not Null, sql
 
 Postgres - https://www.postgresql.org/download/windows/
 
+SQLITE - https://sqliteonline.com/
+
 postgres Master Password - postgres
 postgres db_name = akpms
 'USER':'postgres',
 'PASSWORD':'postgres',
+
+
+# Function based Views, Class Based Views
