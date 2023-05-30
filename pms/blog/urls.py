@@ -6,4 +6,5 @@ urlpatterns = [
     path('aboutus/',views.aboutus),
     path('data/',views.data),
     path('contactus/',views.contactus),
+    path('learnfor/',views.learnforloop),
 ]
