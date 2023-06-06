@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Student
 
 # Create your views here.
 
@@ -45,3 +46,18 @@ def learnforloop(request):
     context['Institute'] = 'ROyal Techno'
 
     return render(request, 'blog/for.html', context)
+
+
+def getAllData(request):
+    # Django ORM lookups
+    # students = Student.objects.all().values()
+    # students = Student.objects.filter(age__gte = 50).values()
+    # students = Student.objects.filter(age__lte = 50).values()
+    # students = Student.objects.filter(name__istartswith = 'A').values()
+    # students = Student.objects.filter(name__endswith = 'h').values()
+    # students = Student.objects.filter(name__contains = 'f').values()
+    # students = Student.objects.filter(age__range = (30,60)).values()
+    # students = Student.objects.filter(age__in = [32,89]).values()
+    students = Student.objects.all().order_by('-age').values()
+
+    return render(request, 'blog/getalldata.html',{'students' : students})
