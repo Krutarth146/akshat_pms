@@ -8,4 +8,7 @@ urlpatterns = [
     path('contactus/',views.contactus),
     path('learnfor/',views.learnforloop),
     path('getdata/',views.getAllData),
+    path('createorm/',views.createOrm),
+    path('deleteorm/',views.deleteRecord),
+    path('updateorm/',views.updateRecord),
 ]
