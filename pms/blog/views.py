@@ -92,4 +92,6 @@ def updateRecord(request):
     print("Record Updtaed")
     return render(request,'blog/updateorm.html')
 
+def Home(request):
+    return render(request, 'index.html')
 

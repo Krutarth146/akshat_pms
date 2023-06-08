@@ -11,4 +11,5 @@ urlpatterns = [
     path('createorm/',views.createOrm),
     path('deleteorm/',views.deleteRecord),
     path('updateorm/',views.updateRecord),
+    path('index/',views.Home),
 ]
