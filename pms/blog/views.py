@@ -75,7 +75,7 @@ def createOrm(request):
     student = Student(name= "Dhiraj Sir", age = 25, isActive = False)
     student.save()
     print("Student Saved...")
-    return render(request,'blog/createorm.html')
+    return render(request,'demo.html')
 
 
 def deleteRecord(request):
