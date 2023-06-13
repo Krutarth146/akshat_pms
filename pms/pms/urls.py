@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/',include('blog.urls')),
     path('cbv/',include('cbv.urls')),
+    path('crud/',include('crud.urls')),
 ]
