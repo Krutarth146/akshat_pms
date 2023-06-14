@@ -1,5 +1,5 @@
 from django.shortcuts import render,HttpResponse, HttpResponseRedirect
-from .forms import Employee_Creation 
+from .forms import *
 from .models import Employee
 
 # Create your views here.
@@ -22,3 +22,25 @@ def employee_creation_view(request):
         data = Employee_Creation()
 
     return render(request, 'crud/create_em.html', {'form' : data})
+
+
+def em_create(request):
+    context = {}
+
+    form = EmployeeForm(request.POST)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect('/cbv/list/')
+    
+    context['form'] = form
+
+    return render(request, 'crud/create.html', context)
+
+
+def em_list(request):
+    context = {}
+    employee = Employee.objects.all().values()
+    context['employee'] = employee
+
+    return render(request, 'crud/list.html', context)
