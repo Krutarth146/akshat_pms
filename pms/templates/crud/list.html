@@ -17,6 +17,7 @@
             <th scope="col">Salary</th>
             <th scope="col">Age</th>
             <th scope="col">Address</th>
+            <th>
           </tr>
         </thead>
         <tbody>
@@ -24,11 +25,17 @@
               
             
                 <tr>
+                  {% comment %} {{emp.id}} {% endcomment %}
                     <th>{{emp.name}}</th>
                     <td>{{emp.email}}</td>
                     <td>{{emp.salary}}</td>
                     <td>{{emp.age}}</td>
                     <td>{{emp.address}}</td>
+                    <td>
+                        <a href="{% url 'detail' emp.id %}" class="btn btn-outline-primary">View Details</a>
+                        <a href="{% url 'update' emp.id %}" class="btn btn-outline-warning">Update</a>
+                        <a href="{% url 'delete' emp.id %}" class="btn btn-outline-danger">Delete</a>
+                    </td>
                 </tr>
 
             {% endfor %}

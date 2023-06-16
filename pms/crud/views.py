@@ -17,7 +17,7 @@ def employee_creation_view(request):
         data = Employee_Creation(request.POST)
 
         if data.is_valid():
-            return HttpResponseRedirect("/cbv/list/")
+            return HttpResponseRedirect("/crud/list/")
     else:
         data = Employee_Creation()
 
@@ -31,7 +31,7 @@ def em_create(request):
 
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect('/cbv/list/')
+        return HttpResponseRedirect('/crud/list/')
     
     context['form'] = form
 
@@ -44,3 +44,44 @@ def em_list(request):
     context['employee'] = employee
 
     return render(request, 'crud/list.html', context)
+
+
+def em_update(request,id):
+    context = {}
+    employee = Employee.objects.get(id=id)
+    # print(employee)
+    form = EmployeeForm(request.POST or None,instance=employee)
+    
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect("/crud/list/")
+    
+    
+    context['form'] = form
+
+
+    return render(request,'crud/update.html',context)
+
+
+def em_detail(request,id):
+    context = {}
+    employee = Employee.objects.get(id = id)
+
+    context['employee'] = employee
+
+
+    return render(request,'crud/detail.html',context)
+
+
+def em_delete(request,id):
+    context = {}
+    employee = Employee.objects.get(id = id)
+
+    if request.method == "POST":
+        employee.delete()
+        return HttpResponseRedirect("/crud/list/")
+
+    # context['employee'] = employee
+
+
+    return render(request,'crud/delete.html',context)
