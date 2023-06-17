@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'cbv',
     'crud',
     'crispy_forms',
+    'main',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +135,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [
     BASE_DIR , "static"
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
