@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'cbv',
     'crud',
     'crispy_forms',
+    'crispy_bootstrap5',
     'main',
 ]
 
@@ -136,4 +137,4 @@ STATICFILES_DIRS = [
     BASE_DIR , "static"
 ]
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'

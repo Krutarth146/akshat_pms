@@ -1,6 +1,7 @@
 from django.shortcuts import render,HttpResponse, HttpResponseRedirect
 from .forms import *
 from .models import Employee
+from django.views.generic import TemplateView
 
 # Create your views here.
 
@@ -85,3 +86,37 @@ def em_delete(request,id):
 
 
     return render(request,'crud/delete.html',context)
+
+
+
+# def Rendering_data(request):
+#     name =  "Akshat"
+#     age = 19
+#     context = {}
+#     context['name'] = name
+#     context['age'] = age
+#     return render(request, 'crud/render1.html', context)
+
+
+class Render_data(TemplateView):
+    template_name = 'crud/render1.html'
+
+    def get_context_data(self, **kwargs):
+        age = 10
+        name = ['Akshat', 'Priyank']
+        dict = {'1' : 'one', '2' : 'second'}
+        context_old = super().get_context_data(**kwargs)
+        context = {'age' : age, 'name' : name, 'dict' : dict, 'context' : context_old}
+
+        return context
+    
+
+def contactus(request):
+    if request.method == 'POST':
+        form = Employee_Creation(request.POST)
+        if form.is_valid():
+            
+            return HttpResponse("Thank You")
+        else:
+            return render(request, 'crud/contactus.html',{'form' : form})
+    return render(request, 'crud/contactus.html', {'form' : Employee_Creation})
