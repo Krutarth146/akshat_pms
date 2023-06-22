@@ -23,4 +23,5 @@ urlpatterns = [
     path('cbv/',include('cbv.urls')),
     path('crud/',include('crud.urls')),
     path('main/',include('main.urls')),
+    path('user/',include('user.urls')),
 ]
