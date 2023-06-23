@@ -2,7 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import User, Client, Trainer
 
 
-class TrainerCreationView(UserCreationForm):
+class TrainerCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User
         fields = ['username', 'email', 'password1', 'password2', 'diet_plan']
@@ -13,7 +13,7 @@ class TrainerCreationView(UserCreationForm):
         user.save()
         return user
 
-class ClientCreationView(UserCreationForm):
+class ClientCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User
         fields = ['username', 'email', 'password1', 'password2', 'mobile']
