@@ -7,4 +7,5 @@ urlpatterns = [
     path('signupc/',ClientSignupView.as_view(),name='signupc'),
     path('login/',LoginView.as_view(),name='login'),
     path('logout/',LogoutView.as_view(),name='logout'),
+    path('upload/',CreateElectronics.as_view(),name='upload1'),
 ]

@@ -1,5 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm
-from .models import User, Client, Trainer
+from .models import User, Client, Trainer, Electronics
+from django import forms
 
 
 class TrainerCreationForm(UserCreationForm):
@@ -23,3 +24,10 @@ class ClientCreationForm(UserCreationForm):
         user.is_client = True
         user.save()
         return user
+    
+
+class ElectronicsForm(forms.ModelForm):
+        class Meta:
+            model = Electronics
+            fields = '__all__'
+    

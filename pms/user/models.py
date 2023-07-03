@@ -21,3 +21,12 @@ class Trainer(models.Model):
 
     class Meta:
         db_table = 'trainer'
+
+
+class Electronics(models.Model):
+    name = models.CharField(max_length=30)
+    file = models.FileField(upload_to='uploads/')
+
+    class Meta:
+        db_table = 'electronics'
+        

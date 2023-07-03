@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
-from .models import User
+from .models import User, Electronics
 from django.views.generic.edit import CreateView
 from .forms import *
 from django.contrib.auth import login
 from django.conf import settings
 from django.core.mail import send_mail
 from django.contrib.auth.views import LoginView
+from django.core.files.storage import FileSystemStorage
 
 # Create your views here.
 class TrainerSignupView(CreateView):
@@ -65,3 +66,25 @@ def sendMail(mailid):
     res = send_mail(subject, message, email_from, recipient_list)
     print(res)
     return res
+
+
+def upload(request):
+    if request.method == "POST":
+        myFile = request.FILES['file']
+        fs = FileSystemStorage
+
+        myFile = fs.save(myFile.name, myFile)
+        uploaded_file_url = fs.url(myFile)
+
+        return render(request,'user/upload.html',{
+                'uploaded_file_url' : uploaded_file_url
+        })
+
+    return render(request,'user/upload.html')
+
+
+class CreateElectronics(CreateView):
+    model = Electronics
+    template_name = 'user/upload.html'
+    success_url = "/user/upload/"
+    form_class = ElectronicsForm
